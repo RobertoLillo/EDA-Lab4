@@ -4,12 +4,13 @@
 #include <math.h>
 
 /********** Estructuras **********/
-typedef struct Nodo {
-    char *espanol;
+typedef struct Nodo
+{
+    char espanol[50];
     struct Nodo *padre;
     struct Nodo *hijoIzq;
     struct Nodo *hijoDer;
-    char *english;
+    char english[50];
     struct Nodo *father;
     struct Nodo *leftChild;
     struct Nodo *RightChild;
@@ -17,4 +18,5 @@ typedef struct Nodo {
 
 /********** Prototipos **********/
 int contarPalabras();
-
+void guardarPalabras(char *palabras, char *words);
+nodo *crearNodo(char *palabraEspanol, char *wordEnglish);
