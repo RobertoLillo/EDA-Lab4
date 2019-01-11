@@ -13,10 +13,9 @@ typedef struct Nodo
     char english[50];
     struct Nodo *father;
     struct Nodo *leftChild;
-    struct Nodo *RightChild;
+    struct Nodo *rightChild;
 } nodo;
 
 /********** Prototipos **********/
 int contarPalabras();
-void guardarPalabras(char *palabras, char *words);
-nodo *crearNodo(char *palabraEspanol, char *wordEnglish);
+void guardarPalabras(nodo *arbol, int cantidad);
