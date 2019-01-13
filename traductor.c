@@ -1,3 +1,12 @@
+/*
+ *
+ * Traductor Little C's.
+ * Asignatura : Analisis de algoritmos y estructura de datos.
+ * Autor: Roberto Lillo Toloza.
+ * Ultima fecha de edicion: 13/1/2019.
+ * 
+*/
+
 #include "traductor.h"
 
 int main()
@@ -94,7 +103,6 @@ int main()
 }
 
 // Se cuentan las palabras para crear un arreglo estatico donde guardarlas.
-//
 int contarPalabras()
 {
     FILE *archivo = fopen("traductor.in", "r");
