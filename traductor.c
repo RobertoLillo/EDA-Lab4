@@ -88,10 +88,14 @@ int main()
                     scanf("%s", palabraEng);
                     traducir(raiz, palabraEng, 2);
                 }
-                else
+                else if (opcion == 3)
                 {
                     printf("\nAdios!\n\n");
                     flag = 1;
+                }
+                else
+                {
+                    printf("\nIngrese una opcion dentro del rango\n");
                 }
             }
         }
@@ -272,11 +276,27 @@ void traducir(nodo *raiz, string palabra, int opcion)
         {
             if (strcmp(palabra, raiz->espanol) <= 0)
             {
-                traducir(raiz->hijoIzq, palabra, opcion);
+                if (raiz->hijoIzq == NULL)
+                {
+                    printf("\nLa palabra que acaba de ingresar no esta en el traductor\n");
+                    return;
+                }
+                else
+                {
+                    traducir(raiz->hijoIzq, palabra, opcion);
+                }
             }
             else
             {
-                traducir(raiz->hijoDer, palabra, opcion);
+                if (raiz->hijoDer == NULL)
+                {
+                    printf("\nLa palabra que acaba de ingresar no esta en el traductor\n");
+                    return;
+                }
+                else
+                {
+                    traducir(raiz->hijoDer, palabra, opcion);
+                }
             }
         }
     }
@@ -294,11 +314,27 @@ void traducir(nodo *raiz, string palabra, int opcion)
         {
             if (strcmp(palabra, raiz->english) <= 0)
             {
-                traducir(raiz->leftChild, palabra, opcion);
+                if (raiz->leftChild == NULL)
+                {
+                    printf("\nLa palabra que acaba de ingresar no esta en el traductor\n");
+                    return;
+                }
+                else
+                {
+                    traducir(raiz->leftChild, palabra, opcion);
+                }
             }
             else
             {
-                traducir(raiz->rightChild, palabra, opcion);
+                if (raiz->rightChild == NULL)
+                {
+                    printf("\nLa palabra que acaba de ingresar no esta en el traductor\n");
+                    return;
+                }
+                else
+                {
+                    traducir(raiz->rightChild, palabra, opcion);
+                }
             }
         }
     }
