@@ -22,3 +22,7 @@ typedef struct Nodo
 int contarPalabras();
 void guardarPalabras(string *palabras, string *words, int cantidad);
 void ingresarNodo(nodo *raiz, nodo *nuevo);
+void insertNode(nodo *raiz, nodo *root, string palabra, string word);
+void pointNode(nodo *root, int direccion, nodo *raiz, string palabra);
+void traducir(nodo *raiz, string palabra, int opcion);
+void imprimir(nodo *raiz);
