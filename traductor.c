@@ -3,10 +3,44 @@
 int main()
 {
     int cantidad = contarPalabras();
-    if (cantidad > 0) // Se ejecuta solo si se pudo leer el archivo o se encontro al menos una palabra
+    if (cantidad > 0) // Se ejecuta solo si se pudo leer el archivo y se encontro al menos una palabra
     {
-        nodo *arbol[cantidad];
-        guardarPalabras(arbol, cantidad);
+        // Se guardar las palabras del archivo en dos arreglos para las palabras en espanol e ingles
+        string palabras[cantidad];
+        string words[cantidad];
+        guardarPalabras(palabras, words, cantidad);
+
+        // El arbol se construye inicialmente con las palabras en espanol
+        nodo *raiz = NULL;
+        int i;
+        for (i = 0; i < cantidad; i++)
+        {
+            nodo *nuevoNodo = (nodo *)malloc(sizeof(nodo));
+            strcpy(nuevoNodo->espanol, palabras[i]);
+            strcpy(nuevoNodo->english, words[i]);
+            nuevoNodo->padre = NULL;
+            nuevoNodo->hijoIzq = NULL;
+            nuevoNodo->hijoDer = NULL;
+            nuevoNodo->father = NULL;
+            nuevoNodo->leftChild = NULL;
+            nuevoNodo->rightChild = NULL;
+
+            if (raiz == NULL)
+            {
+                raiz = nuevoNodo;
+            }
+            else
+            {
+                ingresarNodo(raiz, nuevoNodo);
+            }
+        }
+
+        // Construccion del arbol en ingles por encima del arbol en espanol
+        nodo *root = NULL;
+        for (i = 0; i < cantidad; i++)
+        {
+            nodo *aux;
+        } 
     }
     else // No se pudo leer el archivo
     {
@@ -38,39 +72,18 @@ int contarPalabras()
     }
 }
 
-void guardarPalabras(nodo *arbol, int cantidad)
+void guardarPalabras(string *palabras, string *words, int cantidad)
 {
     FILE *archivo = fopen("traductor.in", "r");
 
     if (archivo)
     {
         int contador = 0;
-        printf("\n");
         while (contador < cantidad)
         {
-            char palabra[50];
-            char word[50];
-            fscanf(archivo, "%s %s\n", &palabra, &word);
-            printf("%d) %s %s\n",contador + 1, palabra, word);
-
-            nodo *nuevoNodo = malloc(sizeof(nodo));
-            nuevoNodo->padre = NULL;
-            nuevoNodo->hijoIzq = NULL;
-            nuevoNodo->hijoDer = NULL;
-            nuevoNodo->father = NULL;
-            nuevoNodo->leftChild = NULL;
-            nuevoNodo->rightChild = NULL;
-
-            strcpy(nuevoNodo->espanol, palabra);
-            strcpy(nuevoNodo->english, word);
-
-            arbol[contador] = *nuevoNodo;   // Guardar el puntero al nodo en algun lado
-
-            printf("Nodo ---> %s %s\n", nuevoNodo->espanol, nuevoNodo->english);
-            
+            fscanf(archivo, "%s %s\n", palabras[contador], words[contador]);
             contador++;
         }
-        printf("\nass\n");
         fclose(archivo);
         return;
     }
@@ -81,3 +94,32 @@ void guardarPalabras(nodo *arbol, int cantidad)
         return;
     }
 }
+
+void ingresarNodo(nodo *raiz, nodo *nuevo)
+{
+    if (strcmp(nuevo->espanol, raiz->espanol) <= 0)
+    {
+        if (raiz->hijoIzq == NULL)
+        {
+            raiz->hijoIzq = nuevo;
+            nuevo->padre = raiz;
+        }
+        else
+        {
+            ingresarNodo(raiz->hijoIzq, nuevo);
+        }
+    }
+    else
+    {
+        if (raiz->hijoDer == NULL)
+        {
+            raiz->hijoDer = nuevo;
+            nuevo->padre = raiz;
+        }
+        else{
+            ingresarNodo(raiz->hijoDer, nuevo);
+        }
+    }
+    return;
+}
+

@@ -3,14 +3,16 @@
 #include <string.h>
 #include <math.h>
 
-/********** Estructuras **********/
+/********** Tipos de datos y estructuras **********/
+typedef char string[51];
+
 typedef struct Nodo
 {
-    char espanol[50];
+    string espanol;
     struct Nodo *padre;
     struct Nodo *hijoIzq;
     struct Nodo *hijoDer;
-    char english[50];
+    string english;
     struct Nodo *father;
     struct Nodo *leftChild;
     struct Nodo *rightChild;
@@ -18,4 +20,5 @@ typedef struct Nodo
 
 /********** Prototipos **********/
 int contarPalabras();
-void guardarPalabras(nodo *arbol, int cantidad);
+void guardarPalabras(string *palabras, string *words, int cantidad);
+void ingresarNodo(nodo *raiz, nodo *nuevo);
