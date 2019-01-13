@@ -315,27 +315,27 @@ void imprimir(nodo *nodoPalabra)
     }
     else
     {
-        printf("El nodo padre del idioma espanol es: %s/%s\n", nodoPalabra->padre->espanol, nodoPalabra->padre->english);
+        printf("El nodo padre del idioma espanol es: \t\t%s/%s\n", nodoPalabra->padre->espanol, nodoPalabra->padre->english);
     }
 
     // Mostrar hijo izquierdo espanol
     if (nodoPalabra->hijoIzq == NULL)
     {
-        printf("El nodo no tiene hijo izquierdo en el idioma espanol.\n");
+        printf("El nodo no tiene hijo izquierdo en el espanol.\n");
     }
     else
     {
-        printf("El nodo hijo izquierdo del idioma espanol es: %s/%s\n", nodoPalabra->hijoIzq->espanol, nodoPalabra->hijoIzq->english);
+        printf("El nodo hijo izquierdo del idioma espanol es: \t%s/%s\n", nodoPalabra->hijoIzq->espanol, nodoPalabra->hijoIzq->english);
     }
 
     // Mostrar hijo derecho espanol
     if (nodoPalabra->hijoDer == NULL)
     {
-        printf("El nodo no tiene hijo derecho en el idioma espanol.\n");
+        printf("El nodo no tiene hijo derecho en el espanol.\n");
     }
     else
     {
-        printf("El nodo hijo derecho del idioma espanol es: %s/%s\n", nodoPalabra->hijoDer->espanol, nodoPalabra->hijoDer->english);
+        printf("El nodo hijo derecho del idioma espanol es: \t%s/%s\n", nodoPalabra->hijoDer->espanol, nodoPalabra->hijoDer->english);
     }
 
     // Mostrar padre ingles
@@ -345,27 +345,27 @@ void imprimir(nodo *nodoPalabra)
     }
     else
     {
-        printf("El nodo padre del idioma ingles es: %s/%s\n", nodoPalabra->father->espanol, nodoPalabra->father->english);
+        printf("El nodo padre del idioma ingles es: \t\t%s/%s\n", nodoPalabra->father->espanol, nodoPalabra->father->english);
     }
 
     // Mostrar hijo izquierdo ingles
     if (nodoPalabra->leftChild == NULL)
     {
-        printf("El nodo no tiene hijo izquierdo en el idioma ingles.\n");
+        printf("El nodo no tiene hijo izquierdo en el ingles.\n");
     }
     else
     {
-        printf("El nodo hijo izquierdo del idioma ingles es: %s/%s\n", nodoPalabra->leftChild->espanol, nodoPalabra->leftChild->english);
+        printf("El nodo hijo izquierdo del idioma ingles es: \t%s/%s\n", nodoPalabra->leftChild->espanol, nodoPalabra->leftChild->english);
     }
 
     // Mostrar hijo derecho ingles
     if (nodoPalabra->rightChild == NULL)
     {
-        printf("El nodo no tiene hijo derecho en el idioma ingles.\n");
+        printf("El nodo no tiene hijo derecho en el ingles.\n");
     }
     else
     {
-        printf("El nodo hijo derecho del idioma ingles es: %s/%s\n", nodoPalabra->rightChild->espanol, nodoPalabra->rightChild->english);
+        printf("El nodo hijo derecho del idioma ingles es: \t%s/%s\n", nodoPalabra->rightChild->espanol, nodoPalabra->rightChild->english);
     }
     return;
 }
