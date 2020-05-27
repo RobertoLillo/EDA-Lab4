@@ -1,2 +1,2 @@
-# EDALab4
-Lab 4 EDA C (2-2018)
+# EDA-Lab4
+ Lab 4 Análisis de algoritmos y Estructuras de Datos. C. (2-2018).
